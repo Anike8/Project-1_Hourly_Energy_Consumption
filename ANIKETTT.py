@@ -14,10 +14,10 @@ st.sidebar.header('User Input Parameters')
 
 no_days = st.sidebar.number_input("Insert Number of days", min_value=1, max_value=365, step=1)
 
-with open("C:/Users/anike/regresser.pkl", mode="rb") as f:
+with open("regresser.pkl", mode="rb") as f:
     model = pickle.load(f)
 
-data=pd.read_csv('C:/Users/anike/Daily_data.csv',index_col='Datetime',parse_dates=True)
+data=pd.read_csv('Daily_data.csv',index_col='Datetime',parse_dates=True)
 data.rename({'PJMW_MW':'MW'},inplace=True,axis=1)
 forecast_check_data = np.array(data['MW'][:'2018-07-04'][-7:])
 z=forecast_check_data
